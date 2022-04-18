@@ -28,10 +28,9 @@ class User:
     def user_id_gen(lenght=4):
         n = '0'*lenght
         while len(n) <= lenght:
-            yield n
-            n = int(n)+1
-            n = '0'*(lenght-len(str(n)))+str(n)
-        return
+                yield n
+                n = int(n)+1
+                n = '0'*(lenght-len(str(n)))+str(n)
 
     user_id = iter(user_id_gen(5))
 
@@ -55,9 +54,9 @@ u1.describe_user()
 u2.describe_user()
 u3.describe_user()
 
-def f1():
+def f1(num=10):
     f = []
-    for i in range(10):
+    for i in range(num):
         fn = chr(r.randint(65,90)) + ''.join(list(chr(r.randint(97,122)) for i in range(0,r.randint(3,7))))
         ln = chr(r.randint(65,90)) + ''.join(list(chr(r.randint(97,122)) for i in range(0,r.randint(3,7))))
         f.append(User(fn,ln))
@@ -67,6 +66,6 @@ def f2(f):
     for i in f:
         i.describe_user()
 
-f = f1()
+f = f1(100)
 # print(f)
 f2(f)

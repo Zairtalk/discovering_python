@@ -25,19 +25,19 @@ restaurant1.open_restaurant()
 #     print(i)
 class User:
 
-    def user_id_gen(lenght=4):
+    def _user_id_gen(lenght=4):
         n = '0'*lenght
         while len(n) <= lenght:
                 yield n
                 n = int(n)+1
                 n = '0'*(lenght-len(str(n)))+str(n)
 
-    user_id = iter(user_id_gen(5))
+    _user_id = iter(_user_id_gen(5))
 
     def __init__(self,first_name:str,last_name:str):
         self.first_name = first_name
         self.last_name = last_name
-        self.user_id = User.user_id.__next__()
+        self.user_id = User._user_id.__next__()
 
     def describe_user(self):
         print(f'id: {self.user_id}; Name: {self.first_name}, Last name: {self.last_name}')

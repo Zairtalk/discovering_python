@@ -1,3 +1,6 @@
+import random as r
+import re
+
 class Restaurant:
     def __init__(self,restaurant_name,cuisine_type):
         self.restaurant_name = restaurant_name
@@ -30,7 +33,7 @@ class User:
             n = '0'*(lenght-len(str(n)))+str(n)
         return
 
-    user_id = iter(user_id_gen())
+    user_id = iter(user_id_gen(5))
 
     def __init__(self,first_name:str,last_name:str):
         self.first_name = first_name
@@ -51,3 +54,14 @@ u3 = User('Mari','ia')
 u1.describe_user()
 u2.describe_user()
 u3.describe_user()
+
+def f1():
+    f = []
+    for i in range(10):
+        fn = r.choice()
+        ln = r.choice()
+        f.append('aaa')
+    return f
+
+f = f1()
+print(f)

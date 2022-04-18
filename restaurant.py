@@ -58,10 +58,15 @@ u3.describe_user()
 def f1():
     f = []
     for i in range(10):
-        fn = r.choice()
-        ln = r.choice()
-        f.append('aaa')
+        fn = chr(r.randint(65,90)) + ''.join(list(chr(r.randint(97,122)) for i in range(0,r.randint(3,7))))
+        ln = chr(r.randint(65,90)) + ''.join(list(chr(r.randint(97,122)) for i in range(0,r.randint(3,7))))
+        f.append(User(fn,ln))
     return f
 
+def f2(f):
+    for i in f:
+        i.describe_user()
+
 f = f1()
-print(f)
+# print(f)
+f2(f)

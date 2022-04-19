@@ -15,7 +15,7 @@ class Restaurant:
 # restaurant1 = Restaurant('Asta la vista','wtf')
 # restaurant2 = Restaurant('La casa','De papa')
 # restaurant3 = Restaurant('De mama','Mamu meow')
-# # print(restaurant3.describe_retaurant())
+# print(restaurant3.describe_retaurant())
 # print(restaurant2.describe_retaurant())
 # print(restaurant1.describe_retaurant())
 # restaurant1.open_restaurant()

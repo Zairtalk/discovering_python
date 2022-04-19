@@ -27,13 +27,13 @@ class User:
 
 
     def _user_id_gen(lenght=4):
-        n = '0'*lenght
+        n = '0'.zfill(lenght)
         while len(n) <= lenght:
                 yield n
                 n = int(n)+1
-                n = '0'*(lenght-len(str(n)))+str(n)
+                n = str(n).zfill(lenght)
 
-    _user_id = iter(_user_id_gen(5))
+    _user_id = iter(_user_id_gen())
 
     def __init__(self,first_name:str,last_name:str):
         self.first_name = first_name

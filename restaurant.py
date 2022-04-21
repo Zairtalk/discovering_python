@@ -40,8 +40,11 @@ class User:
     def __init__(self,first_name:str,last_name:str):
         self.first_name = first_name
         self.last_name = last_name
-        self.user_id = User._user_id.__next__()
-
+		try:
+	        self.user_id = User._user_id.__next__()
+		except StopIteration as e:
+			print()
+			raise('Database of users is full. {}').format(e)
     def describe_user(self):
         print(f'id: {self.user_id}; Name: {self.first_name}, Last name: {self.last_name}',end='\n')
 

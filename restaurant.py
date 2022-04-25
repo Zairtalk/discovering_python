@@ -27,7 +27,7 @@ class Restaurant:
 #     print(i)
 class User:
 
-
+    @staticmethod
     def _user_id_gen(lenght=4):
         n = '0'.zfill(lenght)
         while len(n) <= lenght:
@@ -96,7 +96,7 @@ def menu():
 # f = f1(10)
 # f2(f)
 
-l = generate_random_users(num=10001)
+l = generate_random_users(num=10000)
 # save_users(f)
 # l = load_users()
 print_users(l)

@@ -3,28 +3,7 @@
 import random as r
 import os
 
-class Restaurant:
-    def __init__(self,restaurant_name,cuisine_type):
-        self.restaurant_name = restaurant_name
-        self.cuisine_type = cuisine_type
 
-    def describe_retaurant(self):
-        return (self.restaurant_name, self.cuisine_type)
-
-    def open_restaurant(self):
-        print("We're open!")
-
-# restaurant1 = Restaurant('Asta la vista','wtf')
-# restaurant2 = Restaurant('La casa','De papa')
-# restaurant3 = Restaurant('De mama','Mamu meow')
-# print(restaurant3.describe_retaurant())
-# print(restaurant2.describe_retaurant())
-# print(restaurant1.describe_retaurant())
-# restaurant1.open_restaurant()
-
-
-# for i in user_id():
-#     print(i)
 class User:
 
     @staticmethod
@@ -53,14 +32,6 @@ class User:
     def greet_user(self):
         print(f'Privit {self.first_name}')
 
-
-# u1 = User('Dan','Lem')
-# u2 = User('Zair','talk')
-# u3 = User('Mari','ia')
-
-# u1.describe_user()
-# u2.describe_user()
-# u3.describe_user()
 
 def generate_random_users(num=10):
     f = []
@@ -91,12 +62,8 @@ def load_users(file='users.dat'):
         loaded_users.append(User(user[1],user[2]))
     return loaded_users
 
-def menu():
-    l = input('Do you wish to generate new users ?')
-# f = f1(10)
-# f2(f)
+# def menu():
+#     l = input('Do you wish to generate new users ?')
 
 l = generate_random_users(num=10000)
-# save_users(f)
-# l = load_users()
 print_users(l)

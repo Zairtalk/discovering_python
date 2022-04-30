@@ -76,13 +76,7 @@ def load_users(file='users.dat'):
 def save_users_json(user_list,file='users.json'):
     '''Converting list of User instances to proper json file'''
     with open(file,'tw') as f:
-        data = '['
-        for user in user_list:
-            data += json.dumps(user,cls=UserEncoder,indent=4,separators=(',',': ')) + ',\n'
-        else:
-            data = data[:-2] #remove last ,
-            data += ']'
-        f.write(data)
+        json.dump(user_list,f,cls=UserEncoder,indent=4,separators=(',',': '))
 
 def load_users_json(file='users.json'):
     '''Reads json file and returns a list with User instances'''
@@ -95,7 +89,7 @@ def load_users_json(file='users.json'):
 # def menu():
 #     l = input('Do you wish to generate new users ?')
 
-# l = generate_random_users(num=100)
-# save_users_json(l)
-l = load_users_json()
-print_users(l)
+l = generate_random_users(num=100)
+save_users_json(l)
+# l = load_users_json()
+# print_users(l)

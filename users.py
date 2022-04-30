@@ -2,6 +2,7 @@
 
 import random as r
 import os
+import json
 
 
 class User:
@@ -33,6 +34,15 @@ class User:
         print(f'Privit {self.first_name}')
 
 
+class UserEncoder(json.JSONEncoder):
+
+    def default(self,obj):
+        if isinstance(obj,User):
+            return {'id':obj.user_id,'Name':obj.first_name,'Last name':obj.last_name}
+        else:
+            return super().default(obj)
+
+
 def generate_random_users(num=10):
     f = []
     for i in range(num):
@@ -62,8 +72,27 @@ def load_users(file='users.dat'):
         loaded_users.append(User(user[1],user[2]))
     return loaded_users
 
+def save_users_json(user_list,file='users.json'):
+    with open(file,'tw') as f:
+        data = '['
+        for user in user_list:
+            data += json.dumps(user,cls=UserEncoder,indent=4,separators=(',',': ')) + ',\n'
+        else:
+            data = data[:-2]
+            data += ']'
+        f.write(data)
+
+def load_users_json(file='users.json'):
+    loaded_users = []
+    with open(file,'tr') as f:
+        users = json.load(f)
+        for user in users:
+            loaded_users.append(User(user['Name'],user['Last name']))
+    return loaded_users
 # def menu():
 #     l = input('Do you wish to generate new users ?')
 
-l = generate_random_users(num=10000)
+# l = generate_random_users(num=100)
+# save_users_json(l)
+l = load_users_json()
 print_users(l)

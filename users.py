@@ -14,6 +14,7 @@ class User:
                 yield n
                 n = int(n)+1
                 n = str(n).zfill(lenght)
+        return
 
     _user_id = iter(_user_id_gen())
 
@@ -73,16 +74,18 @@ def load_users(file='users.dat'):
     return loaded_users
 
 def save_users_json(user_list,file='users.json'):
+    '''Converting list of User instances to proper json file'''
     with open(file,'tw') as f:
         data = '['
         for user in user_list:
             data += json.dumps(user,cls=UserEncoder,indent=4,separators=(',',': ')) + ',\n'
         else:
-            data = data[:-2]
+            data = data[:-2] #remove last ,
             data += ']'
         f.write(data)
 
 def load_users_json(file='users.json'):
+    '''Reads json file and returns a list with User instances'''
     loaded_users = []
     with open(file,'tr') as f:
         users = json.load(f)
